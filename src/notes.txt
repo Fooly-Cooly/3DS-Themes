@@ -1,0 +1,19 @@
+# 3DS Theme Audio Specifications & Conversion Notes
+
+## Background Music (BGM)
+- Target: bgm.bcstm (and bgm.ogg for preview)
+- Source format: WAV, 16-bit PCM or 32-bit float
+- Sample rate: <= 32000 Hz (32000 Hz or 22050 Hz recommended)
+- Channels: Stereo or Mono
+- Hard file size cap: < 3.3 MB (specifically 3,371,008 bytes for final .bcstm)
+  * Exceeding this cap causes the 3DS HOME Menu to crash or freeze on boot.
+
+## Sound Effects (SFX)
+- Target: *.bcwav (Mono, 16-bit PCM or DSP-ADPCM)
+- Sample rate: <= 16000 Hz (keeps buffer size small, < 16-32 KB per SFX)
+- Sound cue slots & volume balancing (dB relative to BGM level):
+  * CUR (cursor.wav / cursor.bcwav)  : +9 dB relative to BGM level
+  * LAU (launch.wav / launch.bcwav)  : +3 dB relative to BGM level
+  * CLO (close.wav  / close.bcwav)   : +3 dB relative to BGM level
+  * FOL (folder.wav / folder.bcwav)  : +3 dB relative to BGM level
+  * OPE (open.wav   / open.bcwav)    : Lid opening cue
